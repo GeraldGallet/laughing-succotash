@@ -1,0 +1,18 @@
+{
+  "name": "npm-project",
+  "version": "1.0.0",
+  "description": "My package",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^9.35.0"
+  }
+}

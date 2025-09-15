@@ -4,4 +4,5 @@ Described
 
 ## To-do
 - [x] Clone repository
-- [ ] Open PR 
+- [x] Open PR 
+- [ ] Merge PR 

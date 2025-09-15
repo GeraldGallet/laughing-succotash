@@ -4,4 +4,6 @@ Described
 
 ## To-do
 - [x] Clone repository
-- [ ] Merge PR 
+- [ ] Merge PR
+- [ ] Open MR
+- [ ] Merge Pull request

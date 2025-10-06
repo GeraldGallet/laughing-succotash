@@ -1,22 +1,12 @@
-import { Type } from 'class-transformer';
-import { IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
-
-export class AuthorDto {
-  @IsString()
-  firstName: string;
-
-  @IsString()
-  lastName: string;
-}
+import { IsInt, IsOptional, IsString, IsUUID, Max, Min } from 'class-validator';
+import type { AuthorId } from '../authors/author.entity';
 
 export class CreateBookDto {
   @IsString()
   title: string;
 
-  price: number;
-
-  @Type(() => AuthorDto)
-  author: AuthorDto;
+  @IsUUID(4)
+  authorId: AuthorId;
 
   @IsInt()
   @Min(1500)
@@ -29,13 +19,28 @@ export class UpdateBookDto {
   @IsOptional()
   title: string;
 
-  @Type(() => AuthorDto)
+  @IsUUID(4)
   @IsOptional()
-  author: AuthorDto;
+  authorId: AuthorId;
 
   @IsInt()
   @Min(1500)
   @Max(2025)
   @IsOptional()
   yearPublished: number;
+}
+
+export class GetBooksDto {
+  @IsInt()
+  @Min(1)
+  @Max(100)
+  limit: number;
+
+  @IsInt()
+  @Min(0)
+  offset: number;
+
+  @IsString()
+  @IsOptional()
+  sort?: string;
 }

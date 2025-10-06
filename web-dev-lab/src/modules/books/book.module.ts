@@ -4,7 +4,7 @@ import { BookService } from './book.service';
 import { BookRepository } from './book.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BookEntity } from './entities/book.entity';
-import { AuthorEntity } from './entities/author.entity';
+import { AuthorEntity } from '../authors/author.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([BookEntity, AuthorEntity])],

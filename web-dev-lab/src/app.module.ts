@@ -3,9 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BookModule } from './modules/books/book.module';
 import { DatabaseModule } from './modules/database/database.module';
+import { AuthorModule } from './modules/authors/author.module';
 
 @Module({
-  imports: [DatabaseModule, BookModule],
+  imports: [DatabaseModule, AuthorModule, BookModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -1,5 +1,12 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import type { AuthorId } from './author.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { AuthorEntity, type AuthorId } from '../../authors/author.entity';
 
 export type BookId = string & { __brand: 'Book' };
 
@@ -16,4 +23,8 @@ export class BookEntity extends BaseEntity {
 
   @Column({ name: 'author_id', type: 'uuid' })
   authorId: AuthorId;
+
+  @ManyToOne(() => AuthorEntity, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'author_id' })
+  author: AuthorEntity;
 }

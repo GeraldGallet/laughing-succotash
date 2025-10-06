@@ -1,3 +1,5 @@
+import { AuthorId } from '../authors/author.entity';
+
 export type BookAuthorModel = {
   firstName: string;
   lastName: string;
@@ -12,8 +14,19 @@ export type BookModel = {
 
 export type CreateBookModel = {
   title: string;
-  author: BookAuthorModel;
+  authorId: AuthorId;
   yearPublished: number;
 };
 
 export type UpdateBookModel = Partial<CreateBookModel>;
+
+export type FilterBooksModel = {
+  limit: number;
+  offset: number;
+  sort?: Partial<Record<keyof BookModel, 'ASC' | 'DESC'>>;
+};
+
+export type GetBooksModel = {
+  totalCount: number;
+  data: BookModel[];
+};

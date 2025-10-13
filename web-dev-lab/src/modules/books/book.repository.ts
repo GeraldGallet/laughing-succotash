@@ -57,6 +57,7 @@ export class BookRepository {
   }
 
   public async createBook(book: CreateBookModel): Promise<BookModel> {
+    console.log(book);
     const author = await this.authorRepository.findOne({
       where: { id: book.authorId },
     });
